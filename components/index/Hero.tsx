@@ -20,7 +20,7 @@ const Hero = ({ font }: any) => {
           help you secure your dream job. Ethical job board coming soon.
         </p>
       </div>
-      <GetAccessButton />
+      <GetAccessButton styling={"btn-primary"} text="Get Free Access"/>
       <Image
         alt="PlanetCareer Application Dashboard table"
         priority

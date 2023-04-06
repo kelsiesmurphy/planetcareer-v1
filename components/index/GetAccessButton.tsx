@@ -1,14 +1,14 @@
 import { PopupButton } from "@typeform/embed-react";
 
-const GetAccessButton = () => {
+const GetAccessButton = ({styling, text}:any) => {
   const id = "svaWldnk";
   return (
     <>
       <PopupButton
         id={id}
-        className="btn-primary"
+        className={styling}
       >
-        Get Free Access
+        {text}
       </PopupButton>
     </>
   );

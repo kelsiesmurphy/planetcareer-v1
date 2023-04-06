@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { Sora } from "next/font/google";
 import Navigation from "@/components/index/Navigation";
 import Hero from "@/components/index/Hero";
 import Faq from "@/components/index/Faq";
 import Footer from "@/components/index/Footer";
+import Link from "next/link";
+import { Sora } from "next/font/google";
 
 const sora = Sora({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function Home() {
       </Head>
       <main className="flex flex-col min-h-screen bg-stone-50">
         <Navigation />
+        <Link href={"demo"}>Test</Link>
         <Hero font={sora}/>
         <Faq font={sora}/>
         <Footer />

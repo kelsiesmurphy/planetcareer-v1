@@ -23,6 +23,7 @@ const Hero = ({ font }: any) => {
       <GetAccessButton />
       <Image
         alt="PlanetCareer Application Dashboard table"
+        priority
         width={1216}
         height={810}
         src="/dashboard.svg"

@@ -1,15 +1,10 @@
-import Image from "next/image";
+import Logo from "../Logo";
 
 const Footer = () => {
   return (
     <footer className="pt-16 pb-12 space-y-16 md:text-center px-4 md:px-20">
       <div className="flex flex-col gap-4 md:items-center">
-        <Image
-          alt="PlanetCareer Logo"
-          width={142}
-          height={25}
-          src="/wordmark.svg"
-        />
+        <Logo />
         <div className="flex flex-col md:flex-row gap-4">
           <a href="#top" className="text-stone-600 font-semibold">
             Overview

@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Ethical careers made simple. | PlanetCareer</title>
+        <title>PlanetCareer | Ethical careers made simple.</title>
         <meta
           name="description"
           content="Keep track of your job search with our application tracker, built to help you secure your dream job. Ethical job board coming soon."

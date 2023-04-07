@@ -22,7 +22,6 @@ export default function Home() {
       </Head>
       <main className="flex flex-col min-h-screen bg-stone-50">
         <Navigation />
-        <Link href={"demo"}>Test</Link>
         <Hero font={sora}/>
         <Faq font={sora}/>
         <Footer />

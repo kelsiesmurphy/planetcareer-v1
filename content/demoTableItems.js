@@ -1,20 +1,154 @@
 export const demoTableItems = [
-    {
-        id: 1,
-        title: "Is the application tracker free?",
-        description: "Yes, the job application tracker will always be free to use. We aim to get our revenue from companies posting roles, and donations.",
-        link: ""
-    },
-    {
-        id: 2,
-        title: "When will the job board launch?",
-        description: "We plan to launch our ethical job board by late 2023. We will make sure to keep everyone who signs up to our email list up to date.",
-        link: ""
-    },
-    {
-        id: 3,
-        title: "Do you follow green practices?",
-        description: "Absolutely, our database and site are hosted on green providers, and you can see our full breakdown of our impact at any time.",
-        link: "/impact"
-    },
-]
+  {
+    id: 0,
+    company_name: "Waveless",
+    company_logo:
+      "https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/demo-applications-storage/waveless.png?t=2023-04-06T23%3A14%3A17.514Z",
+    stage_id: 1,
+    role_id: 1,
+    pay_range: "£30-£36k",
+    resume: "",
+    cover_letter: "",
+    posting_url: "",
+    applied_date: new Date,
+    further_details: "Met at a networking event and...",
+  },
+  {
+    id: 1,
+    company_name: "Minty",
+    company_logo:
+      "https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/demo-applications-storage/minty.png?t=2023-04-06T23%3A16%3A39.575Z",
+    stage_id: 2,
+    role_id: 2,
+    pay_range: "£27-£30k",
+    resume: "",
+    cover_letter: "",
+    posting_url: "",
+    applied_date: new Date,
+    further_details: "Referral from old colleague. Is...",
+  },
+  {
+    id: 2,
+    company_name: "PinPoint",
+    company_logo:
+      "https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/demo-applications-storage/pinpoint.png?t=2023-04-06T23%3A16%3A52.264Z",
+    stage_id: 0,
+    role_id: 3,
+    pay_range: "£30-£36k",
+    resume: "",
+    cover_letter: "",
+    posting_url: "",
+    applied_date: new Date,
+    further_details: "In their marketing department...",
+  },
+  {
+    id: 3,
+    company_name: "Iceberg",
+    company_logo:
+      "https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/demo-applications-storage/iceberg.png?t=2023-04-06T23%3A17%3A05.606Z",
+    stage_id: 1,
+    role_id: 0,
+    pay_range: "£29-£34k",
+    resume: "",
+    cover_letter: "",
+    posting_url: "",
+    applied_date: new Date,
+    further_details: "6 month project to overhaul...",
+  },
+  {
+    id: 4,
+    company_name: "Mindfulness",
+    company_logo:
+      "https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/demo-applications-storage/mindfulness.png?t=2023-04-06T23%3A17%3A15.111Z",
+    stage_id: 1,
+    role_id: 2,
+    pay_range: "£27-£30k",
+    resume: "",
+    cover_letter: "",
+    posting_url: "",
+    applied_date: new Date,
+    further_details: "Recruiter put me in touch with...",
+  },
+  {
+    id: 5,
+    company_name: "Network",
+    company_logo:
+      "https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/demo-applications-storage/network.png?t=2023-04-06T23%3A17%3A26.607Z",
+    stage_id: 2,
+    role_id: 3,
+    pay_range: "",
+    resume: "",
+    cover_letter: "",
+    posting_url: "",
+    applied_date: new Date,
+    further_details: "Found on social media, asked...",
+  },
+  {
+    id: 6,
+    company_name: "Snapshot",
+    company_logo:
+      "https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/demo-applications-storage/snapshot.png?t=2023-04-06T23%3A17%3A38.044Z",
+    stage_id: 2,
+    role_id: 0,
+    pay_range: "£29-£34k",
+    resume: "",
+    cover_letter: "",
+    posting_url: "",
+    applied_date: new Date,
+    further_details: "Rejected on ethical grounds...",
+  },
+  {
+    id: 7,
+    company_name: "Terra",
+    company_logo:
+      "https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/demo-applications-storage/terra.png?t=2023-04-06T23%3A17%3A55.056Z",
+    stage_id: 2,
+    role_id: 0,
+    pay_range: "",
+    resume: "",
+    cover_letter: "",
+    posting_url: "",
+    applied_date: new Date,
+    further_details: "Didn’t pass the second stage...",
+  },
+];
+
+export const demoRoles = [
+  {
+    id: 0,
+    title: "Fullstack Developer",
+  },
+  {
+    id: 1,
+    title: "Product Manager",
+  },
+  {
+    id: 2,
+    title: "Frontend Developer",
+  },
+  {
+    id: 3,
+    title: "Backend Developer",
+  },
+];
+
+export const demoStages = [
+  {
+    id: 0,
+    title: "Applied",
+    background_colour: "bg-green-50",
+    text_colour: "text-green-700",
+  },
+  {
+    id: 1,
+    title: "Interviewing",
+    background_colour: "bg-green-50",
+    text_colour: "text-green-700",
+  },
+  {
+    id: 2,
+    title: "Rejected",
+    background_colour: "bg-red-50",
+    text_colour: "text-red-700",
+  },
+];

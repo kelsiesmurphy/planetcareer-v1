@@ -1,5 +1,7 @@
 import Image from "next/image";
 import GetAccessButton from "./GetAccessButton";
+import { ArrowUpRight } from "react-feather";
+import Link from "next/link";
 
 const Hero = ({ font }: any) => {
   return (
@@ -20,7 +22,10 @@ const Hero = ({ font }: any) => {
           help you secure your dream job. Ethical job board coming soon.
         </p>
       </div>
-      <GetAccessButton styling={"btn-primary"} text="Get Free Access" />
+      <div className="flex gap-4">
+        <Link href="/demo" className="btn-secondary"><ArrowUpRight /> View Demo</Link>
+        <GetAccessButton styling={"btn-primary"} text="Get Free Access" />
+      </div>
       {/* <Image
         alt="PlanetCareer Application Dashboard table"
         priority

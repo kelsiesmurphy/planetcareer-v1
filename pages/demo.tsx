@@ -6,9 +6,9 @@ const sora = Sora({ subsets: ["latin"] });
 
 const Demo = () => {
   return (
-    <div className="flex bg-stone-50 items-stretch min-h-screen">
+    <div className="flex flex-col bg-stone-50 items-stretch min-h-screen">
       <Navigation />
-      <div className="flex-1 ml-[80px] space-y-12 py-12 md:px-6">
+      <div className="flex-1 md:ml-[80px] space-y-12 py-12 md:px-6">
         <h1
           className={
             sora.className +

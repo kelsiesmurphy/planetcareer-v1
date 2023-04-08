@@ -61,9 +61,9 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {demoTableItems.map((tableLine: any, index: number) => {
+          {demoTableItems.map((tableLineItem: any, index: number) => {
             return (
-              <TableLine key={index} tableLine={tableLine} index={index} />
+              <TableLine key={index} tableLineItem={tableLineItem} index={index} />
             );
           })}
         </tbody>

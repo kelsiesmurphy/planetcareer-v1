@@ -1,8 +1,19 @@
 import Image from "next/image";
 import { demoRoles, demoStages } from "../../content/demoTableItems";
 import { Globe, Paperclip } from "react-feather";
+import Dropdown from "./StageDropdown";
+import { useState } from "react";
 
-const TableLine = ({ tableLine, index }: any) => {
+const TableLine = ({ tableLineItem, index }: any) => {
+
+  const [tableLine, setTableLine] = useState(tableLineItem)
+
+  const handleChangeStage = (stage:any) => {
+    const dupTableLine = {...tableLine}
+    dupTableLine.stage_id = stage.id
+    setTableLine(dupTableLine)
+  };
+
   const role = demoRoles[tableLine.role_id];
   const stage = demoStages[tableLine.stage_id];
 
@@ -22,18 +33,7 @@ const TableLine = ({ tableLine, index }: any) => {
         <p className="text-slate-900 font-medium">{tableLine.company_name}</p>
       </td>
       <td className="flex min-w-[154px] items-center gap-3 px-4 text-sm text-stone-500">
-        <div
-          className={`rounded-full flex gap-2 items-center py-1 px-3 font-medium ${
-            stage.title !== "Rejected"
-              ? "bg-green-100 text-green-700"
-              : "bg-red-100 text-red-700"
-          }`}
-        >
-          {stage.title !== "Rejected" && (
-            <div className="w-[6px] aspect-square rounded-full bg-green-600" />
-          )}
-          {stage ? stage.title : "N/A"}
-        </div>
+        <Dropdown stage={stage} handleChangeStage={handleChangeStage}/>
       </td>
       <td className="hidden md:flex min-w-[162px] items-center gap-3 px-4 text-sm text-stone-500">
         {role ? role.title : "N/A"}
@@ -46,10 +46,10 @@ const TableLine = ({ tableLine, index }: any) => {
           <Paperclip size={12} />
           Resume
         </div>
-        <div className="rounded-full flex gap-2 items-center py-1 px-3 font-medium bg-blue-100 text-blue-700">
+        {tableLine.cover_letter && <div className="rounded-full flex gap-2 items-center py-1 px-3 font-medium bg-blue-100 text-blue-700">
           <Paperclip size={12} />
           Cover Letter
-        </div>
+        </div>}
       </td>
       <td className="hidden sm:flex flex-1 max-w-[60px] items-center gap-3 px-4 text-sm text-stone-500">
         <Globe className="text-stone-400 hover:text-stone-700 transition-colors cursor-pointer" />

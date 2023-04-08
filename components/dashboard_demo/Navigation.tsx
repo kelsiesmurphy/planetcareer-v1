@@ -4,7 +4,7 @@ import demoProfileImg from "../../assets/demo-user-profile.png";
 
 const Navigation = () => {
   return (
-    <div className="hidden md:flex px-4 py-10 bg-white border-r text-stone-500 border-stone-200 w-[80px] flex-col gap-4 justify-between">
+    <div className="hidden md:flex fixed min-h-screen px-4 py-10 bg-white border-r text-stone-500 border-stone-200 w-[80px] flex-col gap-4 justify-between">
       <div className="flex flex-col gap-6 items-center">
         <Image
           alt="PlanetCareer Logo without text"

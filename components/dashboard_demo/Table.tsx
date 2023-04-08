@@ -1,10 +1,22 @@
 import { Plus } from "react-feather";
-import { demoTableItems } from "../../content/demoTableItems";
 import TableLine from "./TableLine";
+import { demoTableItems } from "@/content/demoTableItems";
+// import { demoTableItems } from "../../content/demoTableItems";
+// import Pagination from "./Pagination";
+// import { useState } from "react";
+// import { paginate } from "./Pagination";
 
 const Table = () => {
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const pageSize = 8;
+  // const paginatedPosts = paginate(demoTableItems, currentPage, pageSize);
+
+  // const onPageChange = (page: number) => {
+  //   setCurrentPage(page);
+  // };
+
   return (
-    <div className="flex flex-col border-y border-slate-300 bg-white pb-12 shadow-sm md:rounded-xl md:border-x">
+    <div className="flex flex-col border-y border-slate-300 pb-8 bg-white shadow-sm md:rounded-xl md:border-x">
       <div className="flex justify-between items-center gap-6 py-5 px-4">
         <div className="flex gap-4">
           <h3 className="text-lg font-medium text-slate-900">
@@ -34,9 +46,7 @@ const Table = () => {
               <h4 className="text-xs font-medium text-stone-600">Documents</h4>
             </th>
             <th className="hidden flex-1 max-w-[60px] px-4 sm:flex justify-center">
-              <h4 className="text-xs font-medium text-stone-600">
-                URL
-              </h4>
+              <h4 className="text-xs font-medium text-stone-600">URL</h4>
             </th>
             <th className="hidden flex-1 max-w-[112px] px-4 lg:flex">
               <h4 className="text-xs font-medium text-stone-600">
@@ -58,6 +68,12 @@ const Table = () => {
           })}
         </tbody>
       </table>
+      {/* <Pagination
+        demoTableItems={demoTableItems.length}
+        currentPage={currentPage}
+        pageSize={pageSize}
+        onPageChange={onPageChange}
+      /> */}
     </div>
   );
 };

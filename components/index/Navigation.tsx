@@ -11,7 +11,7 @@ const Navigation = () => {
         <a href="">
           <Logo />
         </a>
-        <a href="#faq" className="text-stone-700 font-semibold">
+        <a href="#faq" className="hidden md:block text-stone-700 font-semibold">
           FAQ
         </a>
       </div>

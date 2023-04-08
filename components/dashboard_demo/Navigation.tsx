@@ -6,6 +6,7 @@ import briefcaseIcon from "../../assets/briefcase.svg";
 import homeIcon from "../../assets/home-smile.svg";
 import settingsIcon from "../../assets/settings.svg";
 import { useState } from "react";
+import Link from "next/link";
 
 const Navigation = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -14,13 +15,15 @@ const Navigation = () => {
     <>
       <div className="flex flex-col gap-4 md:hidden px-4 py-3 bg-white border-b text-stone-500 border-stone-200">
         <div className="flex flex-1 gap-4 justify-between items-center">
-          <Image
-            alt="PlanetCareer Logo without text"
-            width="0"
-            height="0"
-            className="w-10 aspect-square"
-            src="/logomark.svg"
-          />
+          <Link href="/">
+            <Image
+              alt="PlanetCareer Logo without text"
+              width="0"
+              height="0"
+              className="w-10 aspect-square"
+              src="/logomark.svg"
+            />
+          </Link>
           <div className="p-2" onClick={() => setMobileNavOpen(!mobileNavOpen)}>
             {mobileNavOpen ? (
               <X />
@@ -38,13 +41,15 @@ const Navigation = () => {
         {mobileNavOpen && (
           <ul className="flex flex-col gap-2">
             <li className="flex-1 font-medium text-stone-900 flex gap-3 py-3 px-2 rounded-lg hover:bg-stone-50">
-              <Image
-                alt="Home Icon"
-                width="0"
-                height="0"
-                className="w-6"
-                src={homeIcon}
-              />
+              <Link href="/">
+                <Image
+                  alt="Home Icon"
+                  width="0"
+                  height="0"
+                  className="w-6"
+                  src={homeIcon}
+                />
+              </Link>
               Home
             </li>
             <li className="flex-1 font-medium text-stone-900 flex gap-3 py-3 px-2 rounded-lg hover:bg-stone-50">

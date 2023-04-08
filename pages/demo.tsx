@@ -11,7 +11,8 @@ const Demo = () => {
       <div className="flex-1 space-y-12 py-12 md:px-6">
         <h1
           className={
-            sora.className + " text-2xl px-6 md:px-0 md:text-3xl font-medium text-stone-900"
+            sora.className +
+            " text-2xl px-6 md:px-0 md:text-3xl font-medium text-stone-900"
           }
         >
           Welcome back, Jennifer

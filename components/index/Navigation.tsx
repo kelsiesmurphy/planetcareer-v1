@@ -15,7 +15,7 @@ const Navigation = () => {
           FAQ
         </a>
       </div>
-      <GetAccessButton styling={"btn-primary"} text="Get Free Access"/>
+      <GetAccessButton styling={"btn-primary"} text="Get Free Access" />
     </nav>
   );
 };

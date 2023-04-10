@@ -8,9 +8,9 @@ export default function Example({ stage, handleChangeStage }: any) {
       <div>
         <Menu.Button
           className={`rounded-full flex gap-2 items-center py-1 px-3 font-medium ${
-            stage.title !== "Rejected"
-              ? "bg-green-100 text-green-700"
-              : "bg-red-100 text-red-700"
+            stage.title === "Applied"
+              ? "bg-stone-200 text-stone-700"
+              : stage.title === "Interviewing" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
           }`}
         >
           {stage.title === "Interviewing" && (
@@ -40,12 +40,12 @@ export default function Example({ stage, handleChangeStage }: any) {
                   >
                     <Menu.Button
                       className={`rounded-full flex gap-2 items-center py-1 px-3 font-medium ${
-                        stage.title !== "Rejected"
-                          ? "bg-green-100 text-green-700"
-                          : "bg-red-100 text-red-700"
+                        stage.title === "Applied"
+                          ? "bg-stone-200 text-stone-700"
+                          : stage.title === "Interviewing" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
                       }`}
                     >
-                      {stage.title !== "Rejected" && (
+                      {stage.title === "Interviewing" && (
                         <div className="w-[6px] aspect-square rounded-full bg-green-600" />
                       )}
                       {stage ? stage.title : "N/A"}

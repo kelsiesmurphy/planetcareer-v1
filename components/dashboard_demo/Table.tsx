@@ -1,6 +1,7 @@
 import { Plus } from "react-feather";
 import TableLine from "./TableLine";
 import { demoTableItems } from "@/content/demoTableItems";
+import AddApplication from "./application_form/AddApplication";
 // import { demoTableItems } from "../../content/demoTableItems";
 // import Pagination from "./Pagination";
 // import { useState } from "react";
@@ -23,9 +24,7 @@ const Table = () => {
             Job Applications
           </h3>
         </div>
-        <button className="btn-primary">
-          <Plus size={20} className="text-white" /> New
-        </button>
+        <AddApplication />
       </div>
       <table>
         <thead className="text-left">

@@ -26,14 +26,6 @@ const Hero = ({ font }: any) => {
         <Link href="/demo" className="btn-secondary"><ArrowUpRight /> View Demo</Link>
         <GetAccessButton styling={"btn-primary"} text="Get Free Access" />
       </div>
-      {/* <Image
-        alt="PlanetCareer Application Dashboard table"
-        priority
-        width={1216}
-        height={810}
-        src="/dashboard.svg"
-        className="rounded-lg md:rounded-2xl shadow-2xl border-4 md:border-8 border-stone-800"
-      /> */}
       <iframe
         src="https://www.planetcareer.co.uk/demo"
         title="description"

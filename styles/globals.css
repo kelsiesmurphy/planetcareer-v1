@@ -13,9 +13,3 @@
     @apply shadow-sm py-2.5 px-3.5 border border-stone-300 rounded-lg outline-green-700 transition-all;
   }
 }
-
-/* Add Application */
-.customModal {
-  max-width: 720px;
-  border-radius: 12px;
-}

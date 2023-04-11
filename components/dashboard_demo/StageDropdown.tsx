@@ -2,12 +2,12 @@ import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { demoStages } from "../../content/demoTableItems";
 
-export default function Example({ stage, handleChangeStage }: any) {
+export default function Dropdown({ stage, handleChangeStage }: any) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button
-          className={`rounded-full flex gap-2 items-center py-1 px-3 font-medium ${
+          className={`rounded-full outline-green-700 text-sm flex gap-2 items-center py-1 px-3 font-medium ${
             stage.title === "Applied"
               ? "bg-stone-200 text-stone-700"
               : stage.title === "Interviewing" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"

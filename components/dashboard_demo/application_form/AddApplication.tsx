@@ -1,43 +1,77 @@
-import { useState } from "react";
-import { Briefcase, Plus } from "react-feather";
-import { Modal } from "react-responsive-modal";
-import "react-responsive-modal/styles.css";
+import { useState, Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { Briefcase, Plus, X } from "react-feather";
 import Input from "./Input";
+import FirstScreen from "./FirstScreen";
 
 const AddApplication = () => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [secondScreen, setSecondScreen] = useState(false);
 
   return (
     <>
-      <button onClick={() => setOpen(true)} className="btn-primary">
+      <button onClick={() => setIsOpen(true)} className="btn-primary">
         <Plus size={20} />
         New
       </button>
-      <Modal
-        open={open}
-        onClose={() => setOpen(false)}
-        center
-        classNames={{
-          modal: "customModal",
-        }}
-      >
-        <div className="flex flex-col gap-4">
-          <div className="p-3.5 border shadow-sm rounded-lg">
-            <Briefcase />
+
+      <Transition show={isOpen} as={Fragment}>
+        <Dialog onClose={() => setIsOpen(false)} className="relative z-50">
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            {/* The backdrop, rendered as a fixed sibling to the panel container */}
+            <div className="fixed inset-0 bg-stone-700/30 backdrop-blur-md" aria-hidden="true" />
+          </Transition.Child>
+
+          {/* Full-screen container to center the panel */}
+          <div className="fixed inset-0 flex items-center justify-center p-4">
+            {/* The actual dialog panel  */}
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
+            >
+              <Dialog.Panel className="mx-auto max-w-2xl flex-1 p-6 rounded-xl shadow-lg space-y-4 bg-white">
+                <Dialog.Title className="space-y-4">
+                  <div className="flex justify-between items-start text-stone-700">
+                    <div className="p-3.5 border shadow-sm rounded-lg">
+                      <Briefcase />
+                    </div>
+                    <button
+                      className="p-2.5 focus:outline-green-700"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <X />
+                    </button>
+                  </div>
+                  <div>
+                    <h1 className="font-medium text-lg text-stone-900">
+                      New Application
+                    </h1>
+                    <h1 className="text-sm text-stone-600">
+                      Add your application details here.
+                    </h1>
+                  </div>
+                </Dialog.Title>
+
+                <FirstScreen />
+
+              </Dialog.Panel>
+            </Transition.Child>
           </div>
-          <div>
-            <h1 className="font-medium text-lg text-stone-900">
-              New Application
-            </h1>
-            <h1 className="text-sm text-stone-600">
-              Add your application details here.
-            </h1>
-          </div>
-          <form>
-            <Input label="Company" placeholder="Search for company"/>
-          </form>
-        </div>
-      </Modal>
+        </Dialog>
+      </Transition>
     </>
   );
 };

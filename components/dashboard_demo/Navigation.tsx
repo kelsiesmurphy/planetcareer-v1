@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Briefcase, Home, Settings, X } from "react-feather";
+import { X } from "react-feather";
 import demoProfileImg from "../../assets/demo-user-profile.png";
 import menuIcon from "../../assets/menu.svg";
 import briefcaseIcon from "../../assets/briefcase.svg";

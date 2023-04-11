@@ -5,6 +5,7 @@ import Faq from "@/components/index/Faq";
 import Footer from "@/components/index/Footer";
 import { Sora } from "next/font/google";
 
+
 const sora = Sora({ subsets: ["latin"] });
 
 export default function Home() {

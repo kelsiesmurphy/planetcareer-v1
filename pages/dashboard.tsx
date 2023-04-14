@@ -1,15 +1,15 @@
-import Navigation from "@/components/dashboard_demo/Navigation";
-import Table from "@/components/dashboard_demo/Table";
-import { Sora } from "next/font/google";
+import Navigation from "@/components/dashboard/Navigation";
+import Table from "@/components/dashboard/Table";
 import Head from "next/head";
+import { Sora } from "next/font/google";
 
 const sora = Sora({ subsets: ["latin"] });
 
-const Demo = () => {
+const dashboard = () => {
   return (
     <>
       <Head>
-        <title>Dashboard Demo | PlanetCareer</title>
+        <title>[Persons] Dashboard | PlanetCareer</title>
         <meta
           name="description"
           content="Keep track of your job search with our application tracker, built to help you secure your dream job. Ethical job board coming soon."
@@ -35,4 +35,4 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default dashboard;

@@ -7,7 +7,7 @@ import { Sora } from "next/font/google";
 
 const sora = Sora({ subsets: ["latin"] });
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Head>
@@ -26,5 +26,7 @@ export default function Home() {
         <Footer />
       </main>
     </>
-  );
+  )
 }
+
+export default Home

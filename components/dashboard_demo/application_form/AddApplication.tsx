@@ -3,10 +3,25 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Briefcase, Plus, X } from "react-feather";
 import Input from "./Input";
 import FirstScreen from "./FirstScreen";
+import SecondScreen from "./SecondScreen";
 
 const AddApplication = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [secondScreen, setSecondScreen] = useState(false);
+
+  const [company, setCompany] = useState({});
+  const [url, setUrl] = useState("");
+  const [payRange, setPayRange] = useState("");
+  const [stage, setStage] = useState({});
+  const [role, setRole] = useState("");
+  const [resume, setResume] = useState("");
+  const [coverLetter, setCoverLetter] = useState("");
+  const [furtherDetails, setFurtherDetails] = useState("");
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setSecondScreen(false);
+  };
 
   return (
     <>
@@ -16,7 +31,7 @@ const AddApplication = () => {
       </button>
 
       <Transition show={isOpen} as={Fragment}>
-        <Dialog onClose={() => setIsOpen(false)} className="relative z-50">
+        <Dialog onClose={handleClose} className="relative z-50">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -27,7 +42,10 @@ const AddApplication = () => {
             leaveTo="opacity-0"
           >
             {/* The backdrop, rendered as a fixed sibling to the panel container */}
-            <div className="fixed inset-0 bg-stone-700/30 backdrop-blur-md" aria-hidden="true" />
+            <div
+              className="fixed inset-0 bg-stone-700/30 backdrop-blur-md"
+              aria-hidden="true"
+            />
           </Transition.Child>
 
           {/* Full-screen container to center the panel */}
@@ -50,7 +68,7 @@ const AddApplication = () => {
                     </div>
                     <button
                       className="p-2.5 focus:outline-green-700"
-                      onClick={() => setIsOpen(false)}
+                      onClick={handleClose}
                     >
                       <X />
                     </button>
@@ -64,9 +82,14 @@ const AddApplication = () => {
                     </h1>
                   </div>
                 </Dialog.Title>
-
-                <FirstScreen />
-
+                {secondScreen ? (
+                  <SecondScreen
+                    setSecondScreen={setSecondScreen}
+                    handleClose={handleClose}
+                  />
+                ) : (
+                  <FirstScreen setSecondScreen={setSecondScreen} />
+                )}
               </Dialog.Panel>
             </Transition.Child>
           </div>

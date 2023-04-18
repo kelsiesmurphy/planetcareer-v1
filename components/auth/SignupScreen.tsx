@@ -1,6 +1,11 @@
 import Image from "next/image"
+import { useState } from "react"
 
 const SignupScreen = ({setAuthType, font}:any) => {
+  const [firstName, setFirstName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
   return (
     <div className="flex-1 max-w-[360px] space-y-8">
       <div className="flex flex-col items-center text-center space-y-4">

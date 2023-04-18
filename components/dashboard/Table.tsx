@@ -1,20 +1,50 @@
-import { Plus } from "react-feather";
+import { useEffect, useState } from "react";
 import TableLine from "./TableLine";
-import { demoTableItems } from "@/content/demoTableItems";
+
 import AddApplication from "./application_form/AddApplication";
-// import { demoTableItems } from "../../content/demoTableItems";
-// import Pagination from "./Pagination";
-// import { useState } from "react";
-// import { paginate } from "./Pagination";
 
-const Table = () => {
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const pageSize = 8;
-  // const paginatedPosts = paginate(demoTableItems, currentPage, pageSize);
 
-  // const onPageChange = (page: number) => {
-  //   setCurrentPage(page);
-  // };
+const Table = ({session, user, supabase}:any) => {
+  const [loading, setLoading] = useState(true);
+  const [tableLines, setTableLines] = useState([]);
+
+  async function getTableLines() {
+    try {
+      setLoading(true);
+      if (!user) throw new Error("No user");
+
+      // let { data, error, status } = await supabase
+      //   .from("job_application_period")
+      //   .select(`
+      //     id,
+      //     applications!inner (
+      //       *
+      //     )
+      //   `)
+      //   .range(0, 7)
+
+      let { data, error, status } = await supabase
+        .from("application")
+        .select('*')
+        .eq('user_profile_id', user.id) 
+
+      if (error && status !== 406) {
+        throw error;
+      }
+
+      if (data) {
+        setTableLines(data)
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getTableLines();
+  }, [session, user]);
 
   return (
     <div className="flex flex-col border-y border-slate-300 pb-8 bg-white shadow-sm md:rounded-xl md:border-x">
@@ -60,19 +90,13 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {demoTableItems.map((tableLineItem: any, index: number) => {
+          {tableLines.map((tableLineItem: any, index: number) => {
             return (
               <TableLine key={index} tableLineItem={tableLineItem} index={index} />
             );
           })}
         </tbody>
       </table>
-      {/* <Pagination
-        demoTableItems={demoTableItems.length}
-        currentPage={currentPage}
-        pageSize={pageSize}
-        onPageChange={onPageChange}
-      /> */}
     </div>
   );
 };

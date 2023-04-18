@@ -11,7 +11,6 @@ const StageInput = ({label, stage, setStage}:any) => {
       <label htmlFor={label} className="font-medium text-sm text-stone-700">
         {label}
       </label>
-      {/* <input id={label} type="text" className="input" /> */}
       <div className="input py-2 px-3.5">
         <Dropdown stage={stage} handleChangeStage={handleChangeStage} />
       </div>

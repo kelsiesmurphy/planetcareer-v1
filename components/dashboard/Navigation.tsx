@@ -5,11 +5,20 @@ import menuIcon from "../../assets/menu.svg";
 import briefcaseIcon from "../../assets/briefcase.svg";
 import homeIcon from "../../assets/home-smile.svg";
 import settingsIcon from "../../assets/settings.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
-const Navigation = () => {
+const Navigation = ({ profile_img, github_profile_img, first_name }: any) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [placeholder, setPlaceholder] = useState(
+    "https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/demo-applications-storage/placeholder.svg?t=2023-04-17T15%3A38%3A25.558Z"
+  );
+
+  useEffect(() => {
+    fetch(
+      `https://ui-avatars.com/api/?name=${first_name}&background=EAECF0&color=475467&bold=true`
+    ).then((data) => setPlaceholder(data.url));
+  }, [first_name]);
 
   return (
     <>
@@ -120,8 +129,15 @@ const Navigation = () => {
             alt="User Image"
             width="0"
             height="0"
+            unoptimized
             className="w-12 rounded-full aspect-square"
-            src={demoProfileImg}
+            src={
+              profile_img
+                ? `https://xddplurlgjvqtjiyodqt.supabase.co/storage/v1/object/public/avatars/${profile_img}`
+                : github_profile_img
+                ? github_profile_img
+                : placeholder
+            }
           />
         </div>
       </div>

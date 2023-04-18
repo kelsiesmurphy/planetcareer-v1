@@ -22,13 +22,13 @@ const TableLine = ({ tableLineItem, index }: any) => {
       className="flex flex-1 justify-between items-center gap-1 border-b py-3 odd:bg-stone-50"
     >
       <td className="flex flex-1 min-w-[180px] md:max-w-[190px] items-center gap-3 px-4 text-sm text-stone-500">
-        <Image
+        {tableLine.company_logo && <Image
           width="40"
           height="40"
           alt={tableLine.company_name + "company logo"}
           src={tableLine.company_logo}
           className="rounded-full"
-        />
+        />}
         <p className="text-slate-900 font-medium">{tableLine.company_name}</p>
       </td>
       <td className="flex min-w-[154px] items-center gap-3 px-4 text-sm text-stone-500">
@@ -56,7 +56,7 @@ const TableLine = ({ tableLineItem, index }: any) => {
         <Globe className="text-stone-400 hover:text-stone-700 transition-colors cursor-pointer" />
       </td>
       <td className="hidden lg:flex flex-1 max-w-[112px] items-center gap-3 px-4 text-sm text-stone-500">
-        {tableLine.applied_date.toLocaleDateString("en-GB")}
+        {tableLine.applied_date ? tableLine.applied_date : "N/A"}
       </td>
       <td className="hidden lg:flex flex-1 items-center gap-3 px-4 text-sm text-stone-500">
         {tableLine.further_details}

@@ -1,31 +1,63 @@
-import Input from "./Input";
 import UrlInput from "./UrlInput";
 import StageInput from "./StageInput";
 import { demoStages } from "@/content/demoTableItems";
 import { useState } from "react";
 import CompanyInput from "./CompanyInput";
 
-const FirstScreen = ({setSecondScreen}: any) => {
+const FirstScreen = ({ setSecondScreen, handleChange, values }: any) => {
   const [company, setCompany] = useState("");
-  const [postingUrl, setPostingUrl] = useState("");
+
   const [stage, setStage] = useState(demoStages[0]);
   const [role, setRole] = useState("");
 
   return (
     <div className="flex flex-col gap-4">
-      <CompanyInput />
+      <CompanyInput values="values" handleChange={handleChange}/>
       <UrlInput
         label="Posting URL"
         placeholder="www.example.com"
-        postingUrl={postingUrl}
-        setPostingUrl={setPostingUrl}
+        values="values"
+        handleChange={handleChange}
       />
       <div className="flex flex-wrap gap-4">
-        <Input label="Pay Range" placeholder="e.g. £30k - £35k" />
-        <StageInput label="Stage" stage={stage} setStage={setStage} />
+        <div className="flex-1 flex flex-col gap-1.5">
+          <label
+            htmlFor="Pay Range"
+            className="font-medium text-sm text-stone-700"
+          >
+            Pay Range
+          </label>
+          <input
+            onChange={handleChange}
+            name="PayRange"
+            id="Pay Range"
+            type="text"
+            placeholder="e.g. £30k - £35k"
+            className="input"
+          />
+        </div>
+        <StageInput label="Stage" values={values} handleChange={handleChange} />
       </div>
-      <Input label="Role" placeholder="e.g. Developer" />
-      <button onClick={() => setSecondScreen(true)} className="bg-green-700 hover:bg-green-800 py-2.5 mt-3 px-4 rounded-lg text-white transition-colors items-center flex-1 hadow-sm justify-center flex gap-2">
+      <div className="flex-1 flex flex-col gap-1.5">
+          <label
+            htmlFor="Role"
+            className="font-medium text-sm text-stone-700"
+          >
+            Role
+          </label>
+          <input
+            onChange={handleChange}
+            id="Role"
+            type="text"
+            name="Role"
+            placeholder="e.g. Developer"
+            className="input"
+          />
+        </div>
+      <button
+        onClick={() => setSecondScreen(true)}
+        className="bg-green-700 hover:bg-green-800 py-2.5 mt-3 px-4 rounded-lg text-white transition-colors items-center flex-1 hadow-sm justify-center flex gap-2"
+      >
         Next
       </button>
     </div>

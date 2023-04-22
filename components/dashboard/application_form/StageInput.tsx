@@ -1,10 +1,6 @@
 import Dropdown from "../StageDropdown"
 
-const StageInput = ({label, stage, setStage}:any) => {
-
-  const handleChangeStage = (stage: any) => {
-    setStage(stage)
-  };
+const StageInput = ({label, values, handleChange}:any) => {
 
   return (
     <div className="flex-1 flex flex-col gap-1.5">
@@ -12,7 +8,7 @@ const StageInput = ({label, stage, setStage}:any) => {
         {label}
       </label>
       <div className="input py-2 px-3.5">
-        <Dropdown stage={stage} handleChangeStage={handleChangeStage} />
+        <Dropdown values={values} handleChangeStage={handleChange} />
       </div>
     </div>
   )

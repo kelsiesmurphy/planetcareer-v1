@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "react-feather";
 import UploadFile from "./UploadFile";
 
-const SecondScreen = ({ setSecondScreen, handleClose }: any) => {
+const SecondScreen = ({ setSecondScreen, handleClose, handleChange }: any) => {
   return (
     <div className="flex flex-col gap-4">
       <UploadFile fileName="Resume"/>
@@ -13,7 +13,8 @@ const SecondScreen = ({ setSecondScreen, handleClose }: any) => {
         <textarea
           id="further-details"
           rows={3}
-          
+          name="FurtherDetails"
+          onChange={handleChange}
           placeholder="Add additional details relating to this role..."
           className="input min-h-[100px]"
         ></textarea>

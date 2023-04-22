@@ -1,10 +1,25 @@
-const UrlInput = ({ label, placeholder, postingUrl, setPostingUrl }: any) => {
-  function pasteUrl(e: { target: { value: string; }; }) {
-    setPostingUrl(removeHttp(e.target.value))
-  }
+import { useState } from "react";
+
+const UrlInput = ({ label, placeholder, handleChange, values }: any) => {
+  const [postingUrl, setPostingUrl] = useState("");
+  
+  const changeInput = (url: any) => {
+    const result = {
+      target: {
+        name: "Url",
+        value: url,
+      },
+    };
+    setPostingUrl(url)
+    handleChange(result);
+  };
 
   function removeHttp(url:string) {
     return url.replace(/^https?:\/\//, '');
+  }
+
+  function pasteUrl(e: { target: { value: string; }; }) {
+    changeInput(removeHttp(e.target.value))
   }
 
   return (

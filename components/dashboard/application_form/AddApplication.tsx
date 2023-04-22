@@ -1,22 +1,40 @@
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Briefcase, Plus, X } from "react-feather";
-import Input from "./Input";
 import FirstScreen from "./FirstScreen";
 import SecondScreen from "./SecondScreen";
+import { demoStages } from "@/content/demoTableItems";
 
 const AddApplication = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [secondScreen, setSecondScreen] = useState(false);
 
-  const [company, setCompany] = useState({});
-  const [url, setUrl] = useState("");
-  const [payRange, setPayRange] = useState("");
-  const [stage, setStage] = useState({});
-  const [role, setRole] = useState("");
-  const [resume, setResume] = useState("");
-  const [coverLetter, setCoverLetter] = useState("");
-  const [furtherDetails, setFurtherDetails] = useState("");
+  const [values, setValues] = useState({
+    Company: {},
+    Url: "",
+    PayRange: "",
+    Stage: demoStages[0],
+    Role: "",
+    Resume: "",
+    CoverLetter: "",
+    FurtherDetails: "",
+  });
+
+  console.log(values.PayRange);
+
+  const handleChange = (e: any) => {
+    // let name;
+    // let value;
+    // if (e.target) {
+    //   value = e.target.value;
+    //   name = e.target.name;
+    // } else {
+    //   name = e.name
+    //   value = e.value
+    // }
+    const {name, value} = e.target
+    setValues({ ...values, [name]: value });
+  };
 
   const handleClose = () => {
     setIsOpen(false);
@@ -86,9 +104,14 @@ const AddApplication = () => {
                   <SecondScreen
                     setSecondScreen={setSecondScreen}
                     handleClose={handleClose}
+                    handleChange={handleChange}
                   />
                 ) : (
-                  <FirstScreen setSecondScreen={setSecondScreen} />
+                  <FirstScreen
+                    setSecondScreen={setSecondScreen}
+                    handleChange={handleChange}
+                    values={values}
+                  />
                 )}
               </Dialog.Panel>
             </Transition.Child>

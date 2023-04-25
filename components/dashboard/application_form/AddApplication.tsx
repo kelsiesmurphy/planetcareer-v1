@@ -15,8 +15,8 @@ const AddApplication = () => {
     PayRange: "",
     Stage: demoStages[0],
     Role: "",
-    Resume: "",
-    CoverLetter: "",
+    Resume: {},
+    CoverLetter: {},
     FurtherDetails: "",
   });
 
@@ -105,6 +105,7 @@ const AddApplication = () => {
                     setSecondScreen={setSecondScreen}
                     handleClose={handleClose}
                     handleChange={handleChange}
+                    values={values}
                   />
                 ) : (
                   <FirstScreen

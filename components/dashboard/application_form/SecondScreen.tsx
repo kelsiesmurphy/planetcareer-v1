@@ -66,6 +66,7 @@ const SecondScreen = ({
           rows={3}
           name="FurtherDetails"
           onChange={handleChange}
+          value={values.FurtherDetails}
           placeholder="Add additional details relating to this role..."
           className="input min-h-[100px]"
         ></textarea>

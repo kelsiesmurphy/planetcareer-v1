@@ -9,6 +9,7 @@ import {
 } from "@supabase/auth-helpers-react";
 import { Database } from "../utils/database.types";
 import { useEffect, useState } from "react";
+import router from "next/router";
 type UserProfile = Database["public"]["Tables"]["user_profile"]["Row"];
 
 const sora = Sora({ subsets: ["latin"] });
@@ -18,16 +19,19 @@ const Dashboard = () => {
   const supabase = useSupabaseClient<Database>();
 
   const user = useUser();
+
   const [loading, setLoading] = useState(true);
   const [first_name, setFirstName] = useState<UserProfile["first_name"]>(null);
   const [profile_img, setProfileImg] =
-  useState<UserProfile["profile_img"]>(null);
+    useState<UserProfile["profile_img"]>(null);
   const [user_profile_id, setUserProfileId] = useState<UserProfile["id"]>();
   const [githubProfileImg, setGithubProfileImg] = useState(null);
 
   useEffect(() => {
-    getProfile();
-    setGithubProfileImg(user?.user_metadata.avatar_url);
+    if (user) {
+      getProfile();
+      setGithubProfileImg(user?.user_metadata.avatar_url);
+    }
   }, [session, user]);
 
   async function getProfile() {
@@ -56,6 +60,12 @@ const Dashboard = () => {
       setLoading(false);
     }
   }
+
+  const handleSignOut = () => {
+    supabase.auth.signOut();
+    router.push("/");
+  };
+
   return (
     <>
       <Head>
@@ -82,7 +92,10 @@ const Dashboard = () => {
           >
             Welcome back, {first_name}
           </h1>
-          <Table session={session} supabase={supabase} user={user}/>
+          <Table session={session} supabase={supabase} user={user} />
+          <button className="btn-secondary w-full" onClick={handleSignOut}>
+            Sign Out
+          </button>
         </div>
       </main>
     </>

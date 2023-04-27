@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import TableLine from "./TableLine";
-
 import AddApplication from "./application_form/AddApplication";
-
 
 const Table = ({session, user, supabase}:any) => {
   const [loading, setLoading] = useState(true);
@@ -13,20 +11,10 @@ const Table = ({session, user, supabase}:any) => {
       setLoading(true);
       if (!user) throw new Error("No user");
 
-      // let { data, error, status } = await supabase
-      //   .from("job_application_period")
-      //   .select(`
-      //     id,
-      //     applications!inner (
-      //       *
-      //     )
-      //   `)
-      //   .range(0, 7)
-
       let { data, error, status } = await supabase
         .from("application")
         .select('*')
-        .eq('user_profile_id', user.id) 
+        .eq('user_profile_id', user.id)
 
       if (error && status !== 406) {
         throw error;

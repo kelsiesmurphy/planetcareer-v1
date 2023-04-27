@@ -5,10 +5,6 @@ import { useState } from "react";
 import CompanyInput from "./CompanyInput";
 
 const FirstScreen = ({ setSecondScreen, handleChange, values }: any) => {
-  const [company, setCompany] = useState("");
-
-  const [stage, setStage] = useState(demoStages[0]);
-  const [role, setRole] = useState("");
 
   return (
     <div className="flex flex-col gap-4">
@@ -32,6 +28,7 @@ const FirstScreen = ({ setSecondScreen, handleChange, values }: any) => {
             name="PayRange"
             id="Pay Range"
             type="text"
+            value={values.PayRange}
             placeholder="e.g. £30k - £35k"
             className="input"
           />
@@ -50,6 +47,7 @@ const FirstScreen = ({ setSecondScreen, handleChange, values }: any) => {
             id="Role"
             type="text"
             name="Role"
+            value={values.Role}
             placeholder="e.g. Developer"
             className="input"
           />

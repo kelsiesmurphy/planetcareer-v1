@@ -20,18 +20,9 @@ const AddApplication = () => {
     FurtherDetails: "",
   });
 
-  console.log(values.PayRange);
+  console.log(values.PayRange); 
 
   const handleChange = (e: any) => {
-    // let name;
-    // let value;
-    // if (e.target) {
-    //   value = e.target.value;
-    //   name = e.target.name;
-    // } else {
-    //   name = e.name
-    //   value = e.value
-    // }
     const {name, value} = e.target
     setValues({ ...values, [name]: value });
   };
